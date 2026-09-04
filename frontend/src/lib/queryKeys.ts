@@ -1,0 +1,17 @@
+export const queryKeys = {
+  cases: ['cases'] as const,
+  caseList: (params?: Record<string, unknown>) => [...queryKeys.cases, 'list', params] as const,
+  case: (id: number) => ['cases', id] as const,
+  caseMembers: (id: number) => ['cases', id, 'members'] as const,
+  caseComments: (id: number) => ['cases', id, 'comments'] as const,
+  caseActivity: (id: number) => ['cases', id, 'activity'] as const,
+  caseTimeline: (id: number, params?: Record<string, unknown>) => ['cases', id, 'timeline', params] as const,
+  evidence: (caseId: number) => ['evidence', caseId] as const,
+  evidenceList: (caseId: number, params?: Record<string, unknown>) => ['evidence', caseId, 'list', params] as const,
+  evidenceGeoJSON: (caseId: number) => ['evidence', caseId, 'geojson'] as const,
+  evidenceEntities: (caseId: number, evidenceId: number) => ['evidence', caseId, evidenceId, 'entities'] as const,
+  evidenceComments: (caseId: number, evidenceId: number) => ['evidence', caseId, evidenceId, 'comments'] as const,
+  search: (params: Record<string, unknown>) => ['search', params] as const,
+  dashboard: ['dashboard'] as const,
+  me: ['users', 'me'] as const,
+}
